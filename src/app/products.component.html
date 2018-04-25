@@ -1,0 +1,4 @@
+<h1>My Products</h1>
+<input type="text" [(ngmModel)] = "productName"></input>
+<button (click)="productName = 'A Book'" [disabled]="isDisabled">Change Name</button>
+<div>{{ productName }}</div>
