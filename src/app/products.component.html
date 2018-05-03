@@ -1,4 +1,10 @@
 <h1>My Products</h1>
-<input type="text" [(ngmModel)] = "productName"></input>
-<button (click)="productName = 'A Book'" [disabled]="isDisabled">Change Name</button>
-<div>{{ productName }}</div>
+<!-- ngForm is the js object that is automatically created for <form>.
+    We assign it to #f and hand it over to onAddProduct function -->
+<form (ngSubmit)="onAddProduct(f)" #f="ngForm">
+    
+    <input type="text" ngModel name="productName" required>
+    <button type="submit" >Add Product</button>
+</form>
+
+<app-product (productClicked)="onRemoveProduct(product)" *ngFor="let product of products" [productName]="product"></app-product>
